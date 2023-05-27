@@ -1,0 +1,92 @@
+.main{
+    background-color: #303030;;
+    padding-top: 20%;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    margin: auto ;
+   
+}
+.main_ques{
+    width: 50%;
+    height: 10%;
+    color: aliceblue;
+    background-color: #375A7f;
+    text-align: center;
+    margin: auto ;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    font-size: x-large;
+    font-weight: 500;
+}
+.quest {
+    color: aliceblue;
+    font-size: larger;
+}
+.main_input {
+    border: none;
+    width: 49.5%;
+    height: 10%;
+    margin-top: 40px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+    border-radius: 4px;
+
+}
+.main_result {
+    color: white;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    /* padding-left: 70px; */
+
+    
+}
+.main_result > div {
+    font-size: large;
+    background-color: rgb(194, 131, 109);
+    width: 220px;
+    height: 40px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.next {
+    margin-top: 40px;
+}
+.nextBtn {
+   border: none;
+   width: 90px ;
+   height: 40px;
+   padding: 10px;
+   border-radius: 5px;
+   font-size: 15px;
+   
+}
+.nextBtn:hover {
+    border: none;
+    width: 90px ;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: #375A7f;
+    
+ }
+ .num {
+    color: beige;
+    padding: 5px;
+ }
+ .st {
+    color: white;
+    font-size: larger;
+ }
+ 
