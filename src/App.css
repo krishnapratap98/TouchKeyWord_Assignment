@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+.btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+.nxtBtn {
+  height: 40px;
+  border: none;
+  background-color: rgb(232, 202, 161);
+  
+}
+.nxtBtn:hover{
+  background-color: #aec7e1; 
+}
+.linkBtn {
+  text-decoration: none;
+  color: #282c34;
+}
+
