@@ -1,6 +1,6 @@
 .main{
-    background-color: #303030;;
-    padding-top: 20%;
+    background-color: #303030;
+    padding-top: 10%;
     text-align: center;
     width: 100vw;
     height: 100vh;
@@ -88,5 +88,25 @@
  .st {
     color: white;
     font-size: larger;
+ }
+ .keyboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+    margin: 30px auto;
+ }
+ .keyboard div {
+    height: 30px;
+    width: 30px;
+    
+ }
+ .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border-color: rgb(81, 13, 13);
+
  }
  

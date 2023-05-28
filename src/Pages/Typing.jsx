@@ -6,18 +6,17 @@ export function Typing() {
         let mQuest = "";
         let ques = "";
         let char = ['a', 's', 'd', 'f', 'j', 'k', 'l', ';']
-        for (let j = 0; j < 4; j++) {
-            ques = ""
-
-            for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            ques = "";
+            for (let i = 0; i < 2; i++) {
                 let rand = Math.random() * 8;
                 rand = Math.floor(rand)
                 ques += char[rand];
                 console.log(rand, ques);
             }
-            mQuest += ques + " ";
+            mQuest += ques + "";
         }
-        mQuest = mQuest.slice(0, mQuest.length - 1)
+        // mQuest = mQuest.slice(0, mQuest.length - 1)
         return mQuest;
     }
 
@@ -27,6 +26,7 @@ export function Typing() {
             let accuracy = totalCorrect / 10 * 100;
             setAccu(prev => accuracy)
             setCorrect(prev => prev + 1)
+            setNextChar(prev => 0)
         } else {
 
         }
@@ -37,19 +37,30 @@ export function Typing() {
     }
     function checkAns(e) {
         let ans = e.target.value.trim();
-        console.log("--", ans, "--", question, "--");
+        // console.log("--", ans, "--", question, "--");
         let ansCode = "";
+        let ansSize = ans.length
+        if(ans.length < question.length){
+            if(ans[ansSize - 1 ] == question [ansSize - 1]){
+                setNextChar(prev => ans.length)
+            } 
+    
+        }else {
+
         if (ans === question) {
             ansCode = "Correct ans"
             setAnsBool(prev => true)
+            
         } else {
             ansCode = "Wrong ans try again"
             setAnsBool(prev => false)
         }
+    }
         setAnsStatus(prev => ansCode)
 
     }
-    function changeColor(text){
+
+    function changeColor(text) {
         console.log(text);
     }
 
@@ -79,6 +90,10 @@ export function Typing() {
 
     const [total, setTotal] = useState(0);
 
+    const [nextChar, setNextChar] = useState(0);
+
+    const [keyBoard, setkeyBoard] = useState(['a', 's', 'd', 'f', 'j', 'k', 'l', ';'])
+
     const t = useRef(0);
 
 
@@ -86,6 +101,8 @@ export function Typing() {
         let Q = getQust()
         console.log(Q);
         setQuestion(perv => Q)
+        setNextChar(prev => 0)
+        console.log(question, nextChar);
 
     }, [number]);
 
@@ -103,12 +120,30 @@ export function Typing() {
 
     }, []);
 
+    console.log(nextChar, "right");
     return (
         <div className="main">
             {/* details = {min} {char} {total} {average} */}
 
             <div className="main_ques">
-                {question}
+                {question.split("").map((elem, i) => {
+                    return (<span key = {i} style={ nextChar >= i ? {color: "black" } : {color : "yellow"} }>
+                        {elem}
+                    </span>)
+                   // (nextChar == i ? {color : "yellow"} : { color : "white" })
+
+                })}
+            </div>
+            <div className="keyboard">
+
+                { keyBoard.map((elem, i) => {
+                    return ( <div className="box" key = {i} style = { elem == question [nextChar] ? 
+                    {backgroundColor: "black", color: "white", fontSize: "20px"} : {backgroundColor: "white", color: "black"}}>
+                    {elem}
+                </div>)
+                   
+                })}
+               
             </div>
             <input className="main_input"
                 value={input}
